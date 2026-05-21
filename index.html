@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-Maktab | ZAMONAVIY TA'LIM OLAMI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 50%, #fafafa 100%);
+        }
+        /* Asosiy 5D rasm interfeysi uchun effektlar */
+        .hero-display {
+            box-shadow: 0 25px 60px -15px rgba(14, 165, 233, 0.3);
+            transition: all 0.5s ease-in-out;
+        }
+        .hero-display:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 75px -10px rgba(14, 165, 233, 0.5);
+        }
+        /* Neon porlash effektlari */
+        .neon-glow-amber {
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.1);
+        }
+        .neon-glow-sky {
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.1);
+        }
+        /* Telefon raqami uchun tinimsiz pulsatsiya effekti */
+        .pulse-phone {
+            animation: phoneGlow 2s infinite;
+        }
+        @keyframes phoneGlow {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* JAVASCRIPT-SIZ PURE CSS MODAL TIZIMI */
+        .css-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 100;
+            padding: 16px;
+        }
+        .css-modal:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-box {
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .css-modal:target .modal-box {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen font-sans text-gray-800 flex flex-col justify-between">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-sky-100 px-6 py-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="bg-gradient-to-r from-sky-600 to-blue-500 text-white p-2.5 rounded-xl shadow-md flex items-center justify-center group-hover:rotate-6 transition-transform">
+                    <span class="text-2xl font-black">6</span>
+                </div>
+                <div>
+                    <h1 class="text-xl font-black text-slate-800 tracking-tight group-hover:text-sky-600 transition-colors">6-MAKTAB</h1>
+                    <p class="text-xs text-sky-600 font-bold tracking-widest uppercase">ZAMONAVIY TA'LIM OLAMI</p>
+                </div>
+            </div>
+            <nav class="flex items-center gap-6 text-sm font-bold text-slate-600">
+                <a href="#about" class="hover:text-sky-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-sky-600 hover:after:w-full after:transition-all">Biz haqimizda</a>
+                <a href="#features" class="hover:text-sky-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-sky-600 hover:after:w-full after:transition-all">Xususiyatlar</a>
+                <a href="#robotics" class="hover:text-sky-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-sky-600 hover:after:w-full after:transition-all">Robototexnika</a>
+                <a href="#contact" class="hover:text-sky-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-sky-600 hover:after:w-full after:transition-all">Aloqa</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-6 w-full flex-grow flex flex-col justify-center items-center">
+        
+        <div class="text-center mb-8 max-w-3xl">
+            <span class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md animate-pulse">
+                <i class="fa-solid fa-bolt mr-1"></i> Kelajak Texnologiyalari Shu Yerde
+            </span>
+            <h2 class="text-4xl md:text-6xl font-black text-slate-900 mt-4 tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900">
+                6-MAKTAB INTERFAOL TA'LIM PORTALI
+            </h2>
+            <p class="text-sm text-slate-500 mt-3 font-medium">STEM, Virtual Reallik hamda Sun'iy intellekt ekotizimiga ega zamonaviy bilim maskani</p>
+        </div>
+
+        <div class="w-full max-w-5xl rounded-3xl overflow-hidden border-4 border-white hero-display bg-slate-900 relative group cursor-crosshair">
+            <img src="maket.jpg" alt="6-Maktab 5D Bosh Oyna" class="w-full h-auto object-cover block group-hover:scale-[1.01] transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1.5 rounded-xl border border-white/10 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> 3D/5D Interfaol Model
+            </div>
+        </div>
+
+
+        <section id="about" class="w-full max-w-5xl bg-white rounded-3xl p-8 md:p-10 shadow-md border border-slate-100 mt-12 scroll-mt-24">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-1 bg-gradient-to-br from-sky-600 via-blue-600 to-indigo-700 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden group">
+                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform"></div>
+                    <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-xl mb-4 backdrop-blur-md shadow-inner">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <h3 class="text-xl font-black tracking-tight"></h3>
+                    <p class="text-xs text-sky-100 mt-2 leading-relaxed">
+                        Maktabimizda 80 nafardan ortiq yuqori malakali pedagoglar faoliyat yuritadi, ulardan 22 nafari oliy toifali, 21 nafari esa xalqaro va milliy sertifikatlarga ega.
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-white/20 flex justify-between items-center text-xs font-bold">
+                        <span>Oliy OTMga kirish:</span>
+                        <span class="bg-emerald-500 text-white px-2 py-0.5 rounded-md shadow-sm">70% Natija</span>
+                    </div>
+                </div>
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-wider">
+                        <span class="w-6 h-0.5 bg-emerald-500 inline-block"></span> Biz haqimizda biling
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">KELAJAK AVLODNI SHAKILLANTIRISH MASKANI</h3>
+                    <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                        6-sonli umumta'lim maktabi ilg'or STEM laboratoriyalari va zamonaviy AKT infratuzilmasiga ega bo'lgan innovatsion ta'lim muassasasidir. O'tgan o'quv yilida bitiruvchilarimizning 71%i oliy ta'lim muassasalariga grant asosida qabul qilindi. Har bir sinf xonasi interaktiv sensorli doskalar bilan ta'minlangan.
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-4 text-xs font-bold text-slate-500">
+                        <span class="flex items-center gap-1.5 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-xl"><i class="fa-solid fa-circle-check text-emerald-500"></i> Interaktiv doskalar</span>
+                        <span class="flex items-center gap-1.5 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-xl"><i class="fa-solid fa-circle-check text-emerald-500"></i> Optik tolali internet</span>
+                        <span class="flex items-center gap-1.5 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-xl"><i class="fa-solid fa-circle-check text-emerald-500"></i> 100% Xavfsiz hudud</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="features" class="w-full max-w-5xl mt-16 scroll-mt-24">
+            <div class="text-center mb-10">
+                <div class="flex justify-center items-center gap-2 text-sky-600 font-bold text-xs uppercase tracking-wider">
+                    <span class="w-4 h-0.5 bg-sky-500 inline-block"></span> Bizning afzalliklarimiz <span class="w-4 h-0.5 bg-sky-500 inline-block"></span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-black text-slate-800 mt-2 tracking-tight">MAKTABIMIZNING ZAMONAVIY IMKONIYATLARI</h3>
+                <p class="text-xs text-gray-400 mt-1">Batafsil ma'lumot va jonli interaktiv videoni ko'rish uchun kartalardan birini bosing</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <a href="#modal-stem" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-orange-300 transition-all duration-300 flex gap-4 cursor-pointer group hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 shadow-sm"><i class="fa-solid fa-microchip"></i></div>
+                    <div>
+                        <h4 class="font-bold text-base text-slate-800 group-hover:text-orange-600 transition-colors flex items-center gap-1.5">STEM va Robototexnika <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-gray-500 text-xs md:text-sm mt-1 leading-relaxed">O'quvchilarimiz darsdan tashqari vaqtlarda zamonaviy sensorlar va platalar yordamida o'z robotlarini dasturlashni o'rganadilar.</p>
+                    </div>
+                </a>
+                <a href="#modal-vr" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-sky-300 transition-all duration-300 flex gap-4 cursor-pointer group hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300 shadow-sm"><i class="fa-solid fa-vr-cardboard"></i></div>
+                    <div>
+                        <h4 class="font-bold text-base text-slate-800 group-hover:text-sky-600 transition-colors flex items-center gap-1.5">VR (Virtual reallik) Laboratoriyasi <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-gray-500 text-xs md:text-sm mt-1 leading-relaxed">Kimyo, biologiya va astronomiya darslari maxsus VR ko'zoynaklar yordamida interaktiv o'tiladi.</p>
+                    </div>
+                </a>
+                <a href="#modal-it" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-300 transition-all duration-300 flex gap-4 cursor-pointer group hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300 shadow-sm"><i class="fa-solid fa-code"></i></div>
+                    <div>
+                        <h4 class="font-bold text-base text-slate-800 group-hover:text-purple-600 transition-colors flex items-center gap-1.5">Professional IT va Dasturlash <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-gray-500 text-xs md:text-sm mt-1 leading-relaxed">Maktabimiz qoshidagi IT-Klubda o'quvchilar Python hamda mukammal Veb-dizayn yo'nalishlarini o'rganishadi.</p>
+                    </div>
+                </a>
+                <a href="#modal-faceid" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-emerald-300 transition-all duration-300 flex gap-4 cursor-pointer group hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300 shadow-sm"><i class="fa-solid fa-id-card"></i></div>
+                    <div>
+                        <h4 class="font-bold text-base text-slate-800 group-hover:text-emerald-600 transition-colors flex items-center gap-1.5">Smart Face ID va Xavfsizlik <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
+                        <p class="text-gray-500 text-xs md:text-sm mt-1 leading-relaxed">Maktabga kirish-chiqish to'liq Face ID (yuzni tanish) tizimi orqali avtomatlashtirilgan.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+
+        <section id="robotics" class="w-full max-w-5xl mt-16 scroll-mt-24">
+            <div class="text-center mb-12">
+                <div class="flex justify-center items-center gap-2 text-amber-500 font-bold text-xs uppercase tracking-wider mb-2">
+                    <span class="w-8 h-0.5 bg-amber-500 inline-block"></span> Kelajak Laboratoriyasi <span class="w-8 h-0.5 bg-amber-500 inline-block"></span>
+                </div>
+                <h3 class="text-3xl md:text-4xl font-black text-slate-800 tracking-tight">Robototexnika va STEM Markazi</h3>
+                <p class="text-sm text-slate-500 mt-2">Bu yerda g'oyalar haqiqiy robotlarga aylanadi</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all group border-l-4 border-l-amber-500">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0 group-hover:bg-amber-500 group-hover:text-white transition-all"><i class="fa-solid fa-microchip"></i></div>
+                            <div>
+                                <h5 class="font-black text-slate-800 text-sm">1-BOSQICH: Sxemotexnika Asoslari
+Sxemotexnika — bu elektron qurilmalar va elektr tizimlarining sxemalarini yaratish, tahlil qilish va ishlash prinsiplarini o‘rganadigan fan. Bu yo‘nalish orqali aqlli qurilmalar, robotlar, avtomatik boshqaruv tizimlari va “aqlli mashinalar” yaratiladi.
+
+Sxemotexnikaning asosiy vazifalari
+Elektr signallarini boshqarish
+Qurilmalarni avtomatik ishlatish
+Sensorlardan ma’lumot olish
+Dvigatellarni boshqarish
+Aqlli tizim yaratish
+Robototexnika asoslarini qurish
+Asosiy elementlar
+1. Rezistor
+
+Tok kuchini kamaytiradi.
+
+2. Kondensator
+
+Elektr energiyasini vaqtincha saqlaydi.
+
+3. Diod
+
+Tokni bir tomonga o‘tkazadi.
+
+4. Tranzistor
+
+Elektr signalini kuchaytiradi yoki boshqaradi.
+
+5. Mikrokontroller
+
+Qurilmaning “miyasi”.
+Masalan:
+
+Arduino
+ESP32
+Raspberry Pi
+6. Sensorlar
+
+Atrof-muhitni sezadi:
+
+Ultrasonik sensor
+Infraqizil sensor
+Harorat sensori
+Gaz sensori
+Aqlli To‘siqlardan Qochuvchi Mashina ishlash prinsipi
+Ishlash jarayoni:
+Sensor oldidagi to‘siqni sezadi
+Ma’lumot Arduino ga uzatiladi
+Arduino motorlarga buyruq beradi
+Mashina yo‘nalishni o‘zgartiradi
+To‘siqdan qochadi
+Kerak bo‘ladigan qismlar
+Arduino UNO
+Ultrasonik sensor HC-SR04
+Servo motor
+DC motor
+Motor Driver L298N
+Batareya
+G‘ildiraklar
+Shassi
+Simlar
+Ultrasonik sensor formulasi
+
+Masofa aniqlash formulasi:
+
+d=
+2
+v×t
+	​
+
+
+Bu yerda:
+
+d — masofa
+v — tovush tezligi
+t — vaqt
+Sxemotexnikaning zamonaviy yo‘nalishlari
+Robototexnika
+Sun’iy intellekt
+IoT (Internet of Things)
+Smart Home
+Dron texnologiyalari
+Avtomatlashtirish
+Elektr transport
+O‘rganish uchun dasturlar
+Arduino IDE
+Proteus
+Tinkercad
+Fritzing
+KiCad
+Kelajakdagi kasblar
+
+Sxemotexnika orqali quyidagi kasblarni egallash mumkin:
+
+Robototexnik muhandis
+Elektronika muhandisi
+IoT dasturchi
+Avtomatika mutaxassisi
+AI Hardware Engineer
+Embedded Systems Developer
+Muhim tavsiya
+
+Agar o‘quvchilar uchun loyiha qilmoqchi bo‘lsangiz:
+
+oddiy LED sxemalardan boshlang,
+keyin sensorlar,
+undan so‘ng Arduino,
+oxirida robot va aqlli mashinalarga o‘ting.
+
+Shunda o‘quvchilar juda tez qiziqib ketadi va amaliy natija ko‘ra boshlaydi. 🚀</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">LDR, PIR, LM35 datchiklari va mantiqiy elektronika qonuniyatlarini o'rganish.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all group border-l-4 border-l-sky-500">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl shrink-0 group-hover:bg-sky-500 group-hover:text-white transition-all"><i class="fa-solid fa-laptop-code"></i></div>
+                            <div>
+                                <h5 class="font-black text-slate-800 text-sm">2-BOSQICH: Mikrokontrollerlar (Arduino)
+Mikrokontroller nima?
+
+Mikrokontroller — bu kichik hajmdagi “mini kompyuter” bo‘lib, elektron qurilmalarni boshqarish uchun ishlatiladi.
+Uning ichida:
+
+protsessor,
+xotira,
+kirish-chiqish portlari,
+va boshqaruv tizimi mavjud bo‘ladi.
+
+Oddiy qilib aytganda:
+
+👉 Mikrokontroller — aqlli qurilmaning miyasi.
+
+Arduino nima?
+
+Arduino — mikrokontroller asosida yaratilgan ochiq platforma bo‘lib, robotlar, aqlli uy tizimlari, avtomatika va turli elektron loyihalarni yaratishda ishlatiladi.
+
+Arduino:
+
+oson dasturlanadi,
+yangi boshlovchilar uchun qulay,
+juda ko‘p sensorlar bilan ishlaydi,
+robototexnikaning eng mashhur platformalaridan biri hisoblanadi.
+Arduino qanday ishlaydi?
+
+Arduino ishlash jarayoni:
+
+1. Sensor ma’lumot oladi
+
+Masalan:
+
+masofa,
+harorat,
+yorug‘lik,
+harakat.
+2. Arduino ma’lumotni qayta ishlaydi
+
+Kod asosida qaror qabul qiladi.
+
+3. Qurilmaga buyruq beradi
+
+Masalan:
+
+motorni aylantiradi,
+LED yoqadi,
+signal chiqaradi.
+Arduino qismlari
+Asosiy elementlari:
+1. USB Port
+
+Kompyuterga ulash uchun.
+
+2. Mikrokontroller chip
+
+Asosiy boshqaruv qismi.
+
+3. Digital Pinlar
+
+0 va 1 signallar bilan ishlaydi.
+
+4. Analog Pinlar
+
+Turli sensor qiymatlarini o‘qiydi.
+
+5. Power Pin
+
+Elektr quvvati beradi.
+
+Eng mashhur Arduino turlari
+Arduino UNO
+
+Boshlovchilar uchun eng yaxshi variant.
+
+Arduino Nano
+
+Kichik loyihalar uchun.
+
+Arduino Mega
+
+Ko‘p sensorli katta loyihalar uchun.
+
+ESP32
+
+Wi-Fi va Bluetooth bilan ishlaydi.
+
+Arduino bilan nimalar qilish mumkin?
+Aqlli mashina
+Robot qo‘l
+Smart Home
+Aqlli issiqxona
+Dron
+Signalizatsiya
+Yuzni aniqlash
+Avtomatik eshik
+Aqlli sug‘orish tizimi
+Arduino dasturlash tili
+
+Arduino C/C++ asosida ishlaydi.
+
+Misol:
+
+int led = 13;
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(led, HIGH);
+  delay(1000);
+
+  digitalWrite(led, LOW);
+  delay(1000);
+}
+
+Bu kod LED lampani yoqib-o‘chiradi.
+
+Arduino uchun kerakli dasturlar
+Arduino IDE
+
+Rasmiy dasturlash muhiti.
+
+Tinkercad
+
+Virtual sxema yaratish.
+
+Proteus
+
+Professional simulyatsiya.
+
+Sensorlar bilan ishlash
+Ultrasonik sensor
+
+Masofani o‘lchaydi.
+
+Masofa formulasi:
+
+d=
+2
+v×t
+	​
+
+
+Harorat sensori
+
+Temperaturani o‘lchaydi.
+
+Infraqizil sensor
+
+To‘siqni sezadi.
+
+Gaz sensori
+
+Gaz chiqishini aniqlaydi.
+
+Arduino loyihalari bosqichlari
+Boshlang‘ich
+LED yoqish
+Tugma ulash
+Buzzer ishlatish
+O‘rta daraja
+Sensorlar
+LCD ekran
+Servo motor
+Professional
+Robototexnika
+IoT tizimlari
+Sun’iy intellekt qurilmalari
+Arduino o‘rganishning foydalari
+
+✅ Texnik fikrlashni rivojlantiradi
+✅ Dasturlashni o‘rgatadi
+✅ Robototexnikaga kirish beradi
+✅ Kelajak kasblariga tayyorlaydi
+✅ Startap yaratishga yordam beradi
+
+Kelajakdagi kasblar
+
+Arduino va mikrokontrollerlarni bilgan o‘quvchi:
+
+Robototexnik muhandis
+Elektronika muhandisi
+IoT Developer
+Embedded Engineer
+AI Hardware Developer
+Avtomatika mutaxassisi
+
+bo‘lishi mumkin.
+
+Muhim tavsiya
+
+O‘quvchilar uchun:
+
+LED loyihadan boshlang
+Sensorlarga o‘ting
+Arduino bilan mashina yarating
+Robototexnika musobaqalarida qatnashing
+
+Shunda o‘quvchilar texnologiyaga juda tez qiziqib ketadi. 🚀</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">C++ tilida ATmega328P kontrollerini dasturlash va murakkab algoritmlar yozish.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all group border-l-4 border-l-indigo-500">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl shrink-0 group-hover:bg-indigo-500 group-hover:text-white transition-all"><i class="fa-solid fa-cube"></i></div>
+                            <div>
+                                <h5 class="font-black text-slate-800 text-sm">3-BOSQICH: 3D Modellashtirish
+3D Modellashtirish nima?
+
+3D Modellashtirish — bu kompyuter orqali uch o‘lchamli obyektlar yaratish jarayoni.
+Bu texnologiya yordamida:
+
+binolar,
+robotlar,
+avtomobillar,
+o‘yin qahramonlari,
+texnika,
+animatsiyalar,
+va sun’iy dunyolar yaratiladi.
+
+Oddiy qilib aytganda:
+
+👉 3D modellashtirish — virtual obyektlarni haqiqiydek yaratish san’ati va texnologiyasi.
+
+3D modelning 3 ta asosiy o‘lchami
+
+3D obyekt quyidagi koordinatalarda yaratiladi:
+
+X — uzunlik
+Y — kenglik
+Z — balandlik
+
+Koordinata formulasi:
+
+P(x,y,z)
+
+Bu formulada obyektning fazodagi joylashuvi aniqlanadi.
+
+3D Modellashtirish qayerlarda ishlatiladi?
+1. Arxitektura
+Zamonaviy maktablar
+Binolar
+Shahar loyihalari
+2. O‘yin sanoati
+GTA
+Minecraft
+PUBG
+Roblox
+3. Kino va animatsiya
+Marvel filmlari
+Pixar animatsiyalari
+4. Robototexnika
+Aqlli robotlar
+Mexanik tizimlar
+5. Tibbiyot
+Sun’iy organlar
+Jarrohlik simulyatsiyasi
+6. Sanoat
+Zavod uskunalari
+Avtomobil dizayni
+3D Modellashtirish bosqichlari
+1. Modeling
+
+Obyekt shakli yaratiladi.
+
+2. Texturing
+
+Rang va material beriladi.
+
+3. Lighting
+
+Yorug‘lik qo‘shiladi.
+
+4. Rendering
+
+Yakuniy realistik rasm olinadi.
+
+5. Animation
+
+Harakatlantirish amalga oshiriladi.
+
+Eng mashhur 3D dasturlar
+Blender
+
+Bepul va professional dastur.
+
+Autodesk Maya
+
+Animatsiya va kino uchun.
+
+3ds Max
+
+Arxitektura va interyer uchun.
+
+SketchUp
+
+Boshlovchilar uchun qulay.
+
+Cinema 4D
+
+Motion grafikalar uchun.
+
+3D Modellashtirishning matematik asosi
+
+3D grafika matematik formulalar asosida ishlaydi.
+
+Masalan aylantirish formulasi:
+
+x
+′
+=xcosθ−ysinθ
+
+Bu formula obyektni aylantirish uchun ishlatiladi.
+
+Rendering nima?
+
+Rendering — bu 3D modelni real rasm yoki videoga aylantirish jarayoni.
+
+Render vaqtida:
+
+yorug‘lik,
+soya,
+material,
+kamera,
+effektlar hisoblanadi.
+Zamonaviy texnologiyalar
+AI + 3D
+
+Sun’iy intellekt yordamida avtomatik model yaratish.
+
+VR (Virtual Reality)
+
+Virtual olam yaratish.
+
+AR (Augmented Reality)
+
+Telefon orqali 3D obyektni ko‘rsatish.
+
+Metaverse
+
+Virtual dunyo yaratish.
+
+3D Modellashtirish o‘rganishning foydalari
+
+✅ Kreativ fikrlash rivojlanadi
+✅ Dizayn ko‘nikmasi oshadi
+✅ Robototexnika bilan bog‘lanadi
+✅ Yuqori daromadli kasb beradi
+✅ Freelance ishlash imkonini beradi
+
+Kelajak kasblari
+
+3D yo‘nalishida:
+
+3D Artist
+Game Designer
+Animator
+CGI Specialist
+VFX Artist
+Industrial Designer
+Architect Visualizer
+
+kasblarini egallash mumkin.
+
+Kuchli faktlar va ishonchli dalillar
+1. Marvel va Pixar filmlari
+
+Barcha zamonaviy filmlar 3D texnologiya asosida yaratiladi.
+
+2. Tesla va BMW
+
+Avtomobil dizaynlarini oldin 3D formatda ishlab chiqadi.
+
+3. NASA
+
+Kosmik qurilmalarni 3D simulyatsiya qiladi.
+
+4. Qurilish kompaniyalari
+
+Binolar qurilishidan oldin 3D loyiha yaratadi.
+
+5. Tibbiyot
+
+3D printer orqali sun’iy protezlar chiqariladi.
+
+O‘quvchilar uchun loyiha g‘oyalari
+3D maktab modeli
+Aqlli uy
+Robot dizayni
+Kelajak shahri
+Futuristik avtomobil
+Dron modeli
+Boshlash uchun tavsiya
+
+Agar o‘quvchilarga o‘rgatmoqchi bo‘lsangiz:
+
+SketchUp bilan boshlang
+Blender ga o‘ting
+3D animatsiya yarating
+Keyin robototexnika bilan bog‘lang
+
+Shunda o‘quvchilar texnologiya va dizaynni birgalikda o‘rganadi. 🚀</h5>
+                                <p class="text-[11px] text-slate-500 mt-1">Robot korpuslarini 3D printerlar uchun Tinkercad va Fusion 360 dasturlarida loyihalash.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 bg-gradient-to-br from-slate-900 via-slate-950 to-indigo-950 rounded-3xl text-white shadow-xl border border-slate-800 flex flex-col justify-between relative overflow-hidden group">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-sky-500/10 rounded-full blur-3xl group-hover:bg-sky-500/20 transition-all duration-700"></div>
+                    
+                    <a href="#modal-robot-image" class="w-full h-48 overflow-hidden bg-slate-800 relative block border-b border-white/5 cursor-zoom-in">
+                        <img src="robot-mashina.jpg" alt="robot-mashina.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-amber-500 text-black text-[9px] font-black px-3 py-1 rounded-full shadow-lg">
+                            <i class="fa-solid fa-magnifying-glass-plus mr-1"></i> KENGAYTIRISH
+                        </div>
+                    </a>
+                    
+                    <div class="p-5 flex-grow">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 border border-sky-500/30 flex items-center justify-center text-lg shadow-inner group-hover:rotate-12 transition-transform">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs font-black tracking-wide text-white uppercase">Obstacle Avoiding Robot 
+Obstacle Avoiding Robot nima?
+
+Obstacle Avoiding Robot — bu oldidagi to‘siqlarni aniqlab, ulardan avtomatik ravishda qochadigan aqlli robotdir.
+
+Oddiy qilib aytganda:
+
+👉 Bu robot o‘zi “ko‘radi”, “o‘ylaydi” va “harakat qiladi”.
+
+U robototexnika va sun’iy intellektning eng mashhur boshlang‘ich loyihalaridan biri hisoblanadi.
+
+Robot qanday ishlaydi?
+
+Robotning ishlash bosqichlari:
+
+1. Sensor to‘siqni aniqlaydi
+
+Ultrasonik sensor masofani o‘lchaydi.
+
+2. Mikrokontroller qaror qabul qiladi
+
+Arduino ma’lumotni qayta ishlaydi.
+
+3. Motorlar yo‘nalishni o‘zgartiradi
+
+Robot chapga yoki o‘ngga buriladi.
+
+Masofa aniqlash formulasi
+
+Ultrasonik sensor quyidagi formula orqali ishlaydi:
+
+d=
+2
+v×t
+	​
+
+
+Bu yerda:
+
+d — masofa
+v — tovush tezligi
+t — signal qaytish vaqti
+Robotning asosiy qismlari
+1. Arduino
+
+Robotning boshqaruv markazi.
+
+2. Ultrasonik sensor HC-SR04
+
+To‘siqlarni aniqlaydi.
+
+3. Motor Driver L298N
+
+Motorlarni boshqaradi.
+
+4. DC Motor
+
+Robotni harakatlantiradi.
+
+5. Servo Motor
+
+Sensorni aylantiradi.
+
+6. Batareya
+
+Energiya manbai.
+
+Robotning ishlash algoritmi
+Oldinga yur →
+To‘siqni tekshir →
+Agar to‘siq bo‘lsa →
+Chap va o‘ngni tekshir →
+Bo‘sh tomonga buril →
+Harakatni davom ettir
+Qiziqarli faktlar
+1. NASA robotlari
+
+Kosmik robotlar ham to‘siqlardan qochish texnologiyasidan foydalanadi.
+
+2. Tesla avtomobillari
+
+Avtopilot tizimi obstacle detection texnologiyasiga asoslangan.
+
+3. Zamonaviy dronlar
+
+To‘qnashuvni oldini olish uchun sensorlardan foydalanadi.
+
+4. Robot changyutgichlar
+
+Masalan iRobot ning robotlari ham shu texnologiyada ishlaydi.
+
+Robototexnikadagi eng muhim texnologiyalar
+Sensor Fusion
+
+Bir nechta sensorlarni birlashtirish.
+
+AI Navigation
+
+Sun’iy intellekt yordamida yo‘l topish.
+
+Computer Vision
+
+Kamera orqali obyektni tanish.
+
+Robot turlari
+Oddiy robot
+
+Faqat sensor bilan ishlaydi.
+
+Aqlli robot
+
+AI bilan qaror qabul qiladi.
+
+Avtonom robot
+
+Odam yordamisiz ishlaydi.
+
+Obstacle Avoiding Robotning foydalari
+
+✅ Dasturlashni o‘rgatadi
+✅ Elektronikani tushuntiradi
+✅ Muhandislik fikrlashini rivojlantiradi
+✅ Robototexnikaga qiziqtiradi
+✅ Sun’iy intellektga kirish beradi
+
+O‘quvchilar uchun loyiha g‘oyalari
+To‘siqdan qochuvchi mashina
+Line follower robot
+Bluetooth robot
+Wi-Fi robot
+AI robot
+Ovozni taniydigan robot
+Professional rivojlanish bosqichlari
+1-bosqich
+
+Oddiy obstacle robot
+
+2-bosqich
+
+Bluetooth boshqaruv
+
+3-bosqich
+
+Kamera qo‘shish
+
+4-bosqich
+
+Sun’iy intellekt integratsiyasi
+
+Ishlatiladigan dasturlar
+Arduino IDE
+
+Kod yozish uchun.
+
+Proteus
+
+Elektr sxema simulyatsiyasi.
+
+Tinkercad
+
+Virtual robot yaratish.
+
+Kuchli va ishonchli dalillar
+Tesla
+
+Avtonom avtomobillar obstacle avoidance tizimisiz ishlamaydi.
+
+Amazon robotlari
+
+Omborlarda avtomatik harakatlanadi.
+
+Harbiy robotlar
+
+Xavfli hududlarda to‘siqlarni aniqlaydi.
+
+Tibbiyot robotlari
+
+Aniq harakatlanish uchun sensorlardan foydalanadi.
+
+Kelajak kasblari
+
+Obstacle Avoiding Robot orqali:
+
+Robototexnik muhandis
+AI Engineer
+Embedded Developer
+Avtomatika mutaxassisi
+Dron dasturchisi
+Smart Systems Engineer
+
+kasblariga kirish mumkin.
+
+Muhim tavsiya
+
+O‘quvchilar uchun eng yaxshi boshlanish:
+
+Arduino o‘rganish
+Sensorlar bilan ishlash
+Oddiy robot yasash
+AI qo‘shish
+Robot musobaqalarida qatnashish
+
+Shunda o‘quvchilar zamonaviy texnologiyalarni amaliy o‘rganadi va kelajak kasblariga tayyor bo‘ladi. 🚀</h5>
+                                <span class="text-[9px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-md font-bold mt-1 inline-flex items-center gap-1">
+                                    <span class="w-1 h-1 rounded-full bg-emerald-400 animate-ping"></span> Avtonom boshqaruv
+                                </span>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-slate-300 leading-relaxed border-t border-white/5 pt-3">
+                            Ushbu aqlli mashina **HC-SR04** ultra-tovushli sensori orqali 2-400 sm masofadagi to'siqlarni aniqlaydi va Servo-motor yordamida harakat yo'nalishini sekundiga 16 marta yangilab turadi.
+                        </p>
+                    </div>
+
+                    <div class="bg-black/40 backdrop-blur-md px-5 py-3 flex items-center justify-between text-[10px] text-slate-400 font-mono border-t border-white/5">
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-microchip text-sky-400"></i> ATmega328P</span>
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-bolt text-amber-400"></i> 6V-9V Power</span>
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-code-branch text-indigo-400"></i> C++ / Wiring</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 text-center shadow-sm">
+                    <div class="text-2xl font-black text-slate-800">50+</div>
+                    <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Tayyor loyihalar</div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 text-center shadow-sm">
+                    <div class="text-2xl font-black text-sky-600">120+</div>
+                    <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">O'quvchilar</div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 text-center shadow-sm">
+                    <div class="text-2xl font-black text-amber-500">15+</div>
+                    <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Musobaqalar</div>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-100 text-center shadow-sm">
+                    <div class="text-2xl font-black text-emerald-500">100%</div>
+                    <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Amaliy darslar</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="w-full max-w-5xl mt-16 mb-6 scroll-mt-24">
+            <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-100 text-center flex flex-col items-center relative overflow-hidden">
+                <div class="flex justify-center items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-wider mb-3">
+                    <span class="w-4 h-0.5 bg-emerald-500 inline-block"></span> Yangi Mavsum Qabuli <span class="w-4 h-0.5 bg-emerald-500 inline-block"></span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">KELAJAK MUHANDISLARI SAFIGA QO'SHILING</h3>
+                <p class="text-gray-500 text-sm mt-2 max-w-md mx-auto">
+                    Farg'ona viloyati, Rishton tumani, Uyrat MFY Qorg'on ichi 42 uy. <br>
+                    <span class="text-xs text-sky-600 font-bold bg-sky-50 px-3 py-1 rounded-full mt-2 inline-block border border-sky-100">info@6-maktab.uz 
+https://t.me/maktab_maslahatchisi_6 
+@tashabbus_maktab_bot</span>
+                </p>
+                
+                <div class="mt-6">
+                    <a href="tel:+998772771243" class="pulse-phone inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-black text-lg md:text-2xl px-10 py-4 rounded-2xl shadow-xl shadow-emerald-500/20 transition-all duration-300">
+                        <i class="fa-solid fa-phone-volume animate-bounce"></i> 
+                        <span>+998 (77) 277-12-43</span>
+                    </a>
+                </div>
+                <p class="text-xs text-gray-400 mt-4 flex items-center gap-1.5 justify-center"><i class="fa-regular fa-clock text-emerald-500"></i> Dushanba - Shanba, 08:00 dan 17:00 gacha</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-950 text-slate-500 text-xs py-5 border-t border-slate-900 w-full mt-6">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+            <p>&copy; 2026 6-Maktab Axborot markazi. Barcha huquqlar himoyalangan.</p>
+            <div class="flex gap-4 text-slate-400 text-sm">
+                <a href="#" class="hover:text-sky-500 transition-colors"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" class="hover:text-sky-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-sky-500 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+    <div id="modal-stem" class="css-modal">
+        <div class="bg-white w-full max-w-xl rounded-3xl p-6 shadow-2xl relative modal-box border border-slate-100">
+            <a href="#features" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-gray-500 w-8 h-8 rounded-full flex items-center justify-center text-sm transition-colors"><i class="fa-solid fa-xmark"></i></a>
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center text-xl shadow-sm"><i class="fa-solid fa-microchip"></i></div>
+                <h4 class="text-lg font-black text-slate-800">STEM va Robototexnika laboratoriyasi</h4>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed">O'quvchilarimiz shunchaki nazoriya o'rganmaydi. Ular yiliga 20 dan ortiq avtonom loyihalarni (Aqlli uy, avtomat parnik) yig'ishadi va tuman/viloyat ko'rgazmalarida faxrli o'rinlarni egallab kelmoqda.</p>
+            <div class="mt-4 overflow-hidden rounded-2xl aspect-video bg-slate-950 shadow-inner border border-slate-800">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/8wX_Ssh6OnM" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="mt-5 flex justify-end">
+                <a href="#features" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-colors">Yopish</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-vr" class="css-modal">
+        <div class="bg-white w-full max-w-xl rounded-3xl p-6 shadow-2xl relative modal-box border border-slate-100">
+            <a href="#features" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-gray-500 w-8 h-8 rounded-full flex items-center justify-center text-sm transition-colors"><i class="fa-solid fa-xmark"></i></a>
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl shadow-sm"><i class="fa-solid fa-vr-cardboard"></i></div>
+                <h4 class="text-lg font-black text-slate-800">VR (Virtual Reallik) Darsxonalari</h4>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed">Virtual reallik texnologiyasi darslarni 100% interaktiv qiladi. Biologiya darsida o'quvchilar inson hujayrasi ichiga 'sayohat' qilishsa, tarix darsida qadimiy obidalarni jonli ko'rishadi.</p>
+            <div class="mt-4 overflow-hidden rounded-2xl aspect-video bg-slate-950 shadow-inner border border-slate-800">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/JdfbVb5Y8oE" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="mt-5 flex justify-end">
+                <a href="#features" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-colors">Yopish</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-it" class="css-modal">
+        <div class="bg-white w-full max-w-xl rounded-3xl p-6 shadow-2xl relative modal-box border border-slate-100">
+            <a href="#features" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-gray-500 w-8 h-8 rounded-full flex items-center justify-center text-sm transition-colors"><i class="fa-solid fa-xmark"></i></a>
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl shadow-sm"><i class="fa-solid fa-code"></i></div>
+                <h4 class="text-lg font-black text-slate-800">Professional IT va Dasturlash</h4>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed">IT-Klubimizda o'quvchilar kelajak kasblarini o'rganishadi. Front-end dasturlash (HTML, CSS, JavaScript) va Python darslari professional mutaxassislar tomonidan yuqori saviyada olib boriladi.</p>
+            <div class="mt-5 flex justify-end">
+                <a href="#features" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-colors">Yopish</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-faceid" class="css-modal">
+        <div class="bg-white w-full max-w-xl rounded-3xl p-6 shadow-2xl relative modal-box border border-slate-100">
+            <a href="#features" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-gray-500 w-8 h-8 rounded-full flex items-center justify-center text-sm transition-colors"><i class="fa-solid fa-xmark"></i></a>
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shadow-sm"><i class="fa-solid fa-id-card"></i></div>
+                <h4 class="text-lg font-black text-slate-800">Smart face ID va Xavfsizlik tizimi</h4>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed">Face ID tizimi o'quvchi darsga kelgan yoki kelmaganligi haqida ota-onaning telefoniga aniq vaqtini ko'rsatib, avtomatlashtirilgan tizim orqali SMS xabar yuboradi.</p>
+            <div class="mt-5 flex justify-end">
+                <a href="#features" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-colors">Yopish</a>
+            </div>
+        </div>
+    </div>
+<div id="modal-robot-image" class="css-modal">
+        <div class="bg-white/10 backdrop-blur-md w-full max-w-3xl rounded-3xl p-3 shadow-2xl relative modal-box border border-white/20 flex flex-col items-center">
+            <a href="#robotics" class="absolute top-4 right-4 bg-white hover:bg-slate-200 text-gray-800 w-10 h-10 rounded-full flex items-center justify-center text-lg transition-colors z-10 shadow-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </a>
+            <div class="w-full overflow-hidden rounded-2xl bg-slate-950 shadow-2xl border border-white/10">
+                <img src="robot-mashina.jpg" alt="robot-mashina.jpg" class="w-full h-auto max-h-[80vh] object-contain block mx-auto">
+            </div>
+            <div class="mt-3 text-center text-white text-xs font-bold bg-black/50 px-4 py-2 rounded-full border border-white/5">
+                <i class="fa-solid fa-robot text-amber-400 mr-1"></i> Obstacle Avoiding Robot — Mukammal 5D Ko'rinishi
+            </div>
+        </div>
+    </div>
+</body>
+</html>
