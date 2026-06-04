@@ -11,7 +11,7 @@
         .gradient-bg {
             background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 50%, #fafafa 100%);
         }
-        /* Asosiy 5D rasm interfeysi uchun effektlar */
+        /* Asosiy 10D rasm interfeysi uchun effektlar */
         .hero-display {
             box-shadow: 0 25px 60px -15px rgba(14, 165, 233, 0.3);
             transition: all 0.5s ease-in-out;
@@ -329,49 +329,62 @@
                 </div>
 
                 <!-- 2-loyiha vizuallashuvi (YANGI QO'SHILGAN ZAMONAVIY LOYIHA) -->
-                <div class="lg:col-span-1 bg-gradient-to-br from-slate-900 via-purple-950 to-slate-950 rounded-3xl text-white shadow-xl border border-purple-900/40 flex flex-col justify-between relative overflow-hidden group">
-                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-fuchsia-500/10 rounded-full blur-3xl group-hover:bg-fuchsia-500/20 transition-all duration-700"></div>
-                    <div class="w-full h-40 overflow-hidden bg-slate-800 relative block border-b border-white/5">
-                        <div class="w-full h-full bg-gradient-to-br from-indigo-900 to-purple-900 flex flex-col items-center justify-center text-center p-4 relative">
-                            <i class="fa-solid fa-drone text-5xl text-fuchsia-400 animate-bounce duration-1000"></i>
-                            <span class="text-[10px] text-purple-200 mt-2 font-mono">ESP32-CAM AI MODULE</span>
-                        </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-                        <div class="absolute top-3 right-3 bg-fuchsia-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-lg">LOYIHA #2</div>
-                    </div>
-                    <div class="p-4 flex-grow">
-                        <h5 class="font-black text-white text-xs uppercase tracking-wide flex items-center gap-1.5"><i class="fa-solid fa-brain text-fuchsia-400"></i> AI Vision Drone</h5>
-                        <p class="text-[11px] text-slate-300 leading-relaxed mt-2">
-                            **ESP32-CAM** mikrokontrolleri va **OpenCV** (Python) kutubxonasi yordamida harakatdagi odam yuzini tanib, uning ortidan avtomatik uchuvchi aqlli kvadrokopter loyihasi.
-                        </p>
-                    </div>
-                    <div class="bg-black/40 backdrop-blur-md px-4 py-2.5 flex justify-between text-[9px] text-slate-400 font-mono border-t border-white/5">
-                        <span><i class="fa-solid fa-microchip text-fuchsia-400"></i> ESP32 AI</span>
-                        <span><i class="fa-brands fa-python text-yellow-400"></i> Python / AI</span>
-                    </div>
-                </div>
+               <div class="lg:col-span-1 bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-950 rounded-3xl text-white shadow-xl border border-emerald-900/40 flex flex-col justify-between relative overflow-hidden group">
 
-            </div>
+```
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all duration-700"></div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-                <div class="bg-white p-4 rounded-2xl border border-slate-100 text-center shadow-sm">
-                    <div class="text-2xl font-black text-slate-800">50+</div>
-                    <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Tayyor loyihalar</div>
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-slate-100 text-center shadow-sm">
-                    <div class="text-2xl font-black text-sky-600">120+</div>
-                    <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">O'quvchilar</div>
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-slate-100 text-center shadow-sm">
-                    <div class="text-2xl font-black text-amber-500">15+</div>
-                    <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Musobaqalar</div>
-                </div>
-                <div class="bg-white p-4 rounded-2xl border border-slate-100 text-center shadow-sm">
-                    <div class="text-2xl font-black text-emerald-500">100%</div>
-                    <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Amaliy darslar</div>
-                </div>
-            </div>
-        </section>
+<a href="#modal-ai-monitoring"
+   class="w-full h-40 overflow-hidden bg-slate-800 relative block border-b border-white/5">
+
+    <div class="w-full h-full bg-gradient-to-br from-emerald-900 to-teal-900 flex flex-col items-center justify-center text-center p-4">
+
+        <i class="fa-solid fa-camera text-5xl text-emerald-400"></i>
+
+        <span class="text-[10px] text-emerald-200 mt-3 font-mono">
+            ESP32-CAM • AI FACE RECOGNITION
+        </span>
+
+    </div>
+
+    <div class="absolute top-3 right-3 bg-emerald-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-lg">
+        LOYIHA #2
+    </div>
+
+</a>
+
+<div class="p-4 flex-grow">
+
+    <h5 class="font-black text-white text-xs uppercase tracking-wide flex items-center gap-1.5">
+        <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+        AI School Monitoring System
+    </h5>
+
+    <p class="text-[11px] text-slate-300 leading-relaxed mt-2">
+        ESP32-CAM va Face Recognition yordamida
+o'quvchilar davomatini aniqlash,
+xavfsizlik monitoringi va real vaqt
+video kuzatuv tizimi.
+    </p>
+
+</div>
+
+<div class="bg-black/40 backdrop-blur-md px-4 py-2.5 flex justify-between text-[9px] text-slate-400 font-mono border-t border-white/5">
+
+    <span>
+        <i class="fa-solid fa-camera text-emerald-400"></i>
+        ESP32-CAM
+    </span>
+
+    <span>
+        <i class="fa-solid fa-brain text-sky-400"></i>
+        AI Vision
+    </span>
+
+</div>
+```
+
+</div>
 
 <!-- ========================= -->
 
@@ -408,7 +421,7 @@
         <h4 class="text-4xl font-black text-slate-800 mt-4">25+</h4>
 
         <p class="text-xs uppercase tracking-widest text-slate-500 mt-2 font-bold">
-            Respublika G'oliblari
+            Respublika g'oliblari
         </p>
     </div>
 
@@ -420,7 +433,7 @@
         <h4 class="text-4xl font-black text-slate-800 mt-4">80+</h4>
 
         <p class="text-xs uppercase tracking-widest text-slate-500 mt-2 font-bold">
-            Viloyat Sovrindorlari
+            Viloyat sovrindorlari
         </p>
     </div>
 
@@ -494,11 +507,11 @@
             </span>
 
             <h4 class="font-black text-xl mt-4 text-slate-800">
-                F.I.Sh.
+                Muqaddasov Umidjon
             </h4>
 
             <p class="text-slate-500 text-sm mt-3">
-                20 yildan ortiq pedagogik va boshqaruv tajribasiga ega.
+                15 yildan ortiq pedagogik va boshqaruv tajribasiga ega.
             </p>
 
         </div>
@@ -558,7 +571,44 @@
 ```
 
 </section>
+<section id="gallery" class="w-full max-w-6xl mt-20">
 
+    <div class="text-center mb-12">
+        <div class="flex justify-center items-center gap-2 text-indigo-600 font-bold text-xs uppercase tracking-wider">
+            <span class="w-6 h-0.5 bg-indigo-500"></span>
+            Media Gallery
+            <span class="w-6 h-0.5 bg-indigo-500"></span>
+        </div>
+
+        <h3 class="text-3xl md:text-4xl font-black text-slate-800 mt-3">
+            MAKTAB HAYOTIDAN LAVHALAR
+        </h3>
+
+        <p class="text-slate-500 mt-2">
+            STEM, Robototexnika va zamonaviy ta'lim jarayonlari
+        </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="group overflow-hidden rounded-3xl shadow-lg">
+            <img src="robotics-lab.jpg"
+                 class="w-full h-72 object-cover group-hover:scale-110 transition duration-700">
+        </div>
+
+        <div class="group overflow-hidden rounded-3xl shadow-lg">
+            <img src="vr-lab.jpg"
+                 class="w-full h-72 object-cover group-hover:scale-110 transition duration-700">
+        </div>
+
+        <div class="group overflow-hidden rounded-3xl shadow-lg">
+            <img src="career-center.jpg"
+                 class="w-full h-72 object-cover group-hover:scale-110 transition duration-700">
+        </div>
+
+    </div>
+
+</section>
         <!-- YANGI VIDEO BLOG BO'LIMI -->
         <section id="videoblog" class="w-full max-w-5xl mt-16 scroll-mt-24">
             <div class="text-center mb-10">
