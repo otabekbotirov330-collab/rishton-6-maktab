@@ -3,267 +3,331 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6-Maktab | ZAMONAVIY TA'LIM OLAMI</title>
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+    <title>6-Maktab | Zamonaviy Ta'lim</title>
+    <!-- Google Fonts interfeysni chiroyli ko'rsatish uchun -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 50%, #fafafa 100%);
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #2563eb;
+            --accent-color: #06b6d4;
+            --text-light: #f8fafc;
+            --text-dark: #334155;
+            --bg-light: #f1f5f9;
+            --card-bg: #ffffff;
         }
-        .hero-display {
-            box-shadow: 0 25px 60px -15px rgba(14, 165, 233, 0.3);
-            transition: all 0.5s ease-in-out;
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-        .hero-display:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 35px 75px -10px rgba(14, 165, 233, 0.5);
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
         }
-        .pulse-phone {
-            animation: phoneGlow 2s infinite;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        @keyframes phoneGlow {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+
+        /* Ko'rsatkichlar bo'limi */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-color), #1e293b);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            text-align: center;
         }
-        .css-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(6px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            z-index: 100;
-            padding: 16px;
+
+        .stats-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .css-modal:target {
-            opacity: 1;
-            pointer-events: auto;
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
-        .modal-box {
-            transform: scale(0.95);
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease;
         }
-        .css-modal:target .modal-box {
-            transform: scale(1);
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Asosiy Banner yoki Maskani */
+        .main-banner {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .main-banner h2 {
+            color: var(--primary-color);
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .main-banner p {
+            font-size: 16px;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Kelajak Maktabi bo'limi */
+        .future-school {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            margin: 15px 0 25px 0;
+            font-style: italic;
+            color: #64748b;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-top: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .card-ai { border-top-color: #8b5cf6; }
+        .card-robot { border-top-color: #f59e0b; }
+        .card-vr { border-top-color: #ec4899; }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        /* Imkoniyatlar interaktiv bo'limi */
+        .interactive-section {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-top: 40px;
+        }
+
+        .interactive-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .interactive-item {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            display: block;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .interactive-item:hover {
+            background: linear-gradient(135deg, var(--secondary-color), #1d4ed8);
+            color: var(--text-light);
+            transform: scale(1.02);
+            border-color: transparent;
+        }
+
+        .interactive-item h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .interactive-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Moslashuvchanlik (Responsive) */
+        @media (max-width: 768px) {
+            .stats-grid, .grid-container, .interactive-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
-<body class="gradient-bg min-h-screen font-sans text-gray-800 flex flex-col justify-between">
+<body>
 
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-sky-100 px-6 py-4 shadow-sm">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-3 group cursor-pointer">
-                <div class="bg-gradient-to-r from-sky-600 to-blue-500 text-white p-2.5 rounded-xl shadow-md flex items-center justify-center group-hover:rotate-6 transition-transform">
-                    <span class="text-2xl font-black">6</span>
-                </div>
-                <div>
-                    <h1 class="text-xl font-black text-slate-800 tracking-tight group-hover:text-sky-600 transition-colors">6-MAKTAB</h1>
-                    <p class="text-xs text-sky-600 font-bold tracking-widest uppercase">ZAMONAVIY TA'LIM OLAMI</p>
-                </div>
-            </div>
-            <nav class="flex items-center gap-6 text-sm font-bold text-slate-600">
-                <a href="#about" class="hover:text-sky-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-sky-600 hover:after:w-full after:transition-all">Biz haqimizda</a>
-                <a href="#features" class="hover:text-sky-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-sky-600 hover:after:w-full after:transition-all">Xususiyatlar</a>
-                <a href="#robotics" class="hover:text-sky-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-sky-600 hover:after:w-full after:transition-all">Loyihalar</a>
-                <a href="#videoblog" class="hover:text-sky-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-sky-600 hover:after:w-full after:transition-all">Video Blog</a>
-                <a href="#contact" class="hover:text-sky-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 after:bg-sky-600 hover:after:w-full after:transition-all">Aloqa</a>
-            </nav>
-        </div>
-    </header>
+    <div class="container">
 
-    <main class="max-w-7xl mx-auto px-6 py-6 w-full flex-grow flex flex-col justify-center items-center">
-        
-        <!-- INTRO -->
-        <div class="text-center mb-8 max-w-3xl">
-            <span class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md animate-pulse">
-                <i class="fa-solid fa-bolt mr-1"></i> Kelajak Texnologiyalari Shu Yerde
-            </span>
-            <h2 class="text-4xl md:text-6xl font-black text-slate-900 mt-4 tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900">
-                6-MAKTAB INTERFAOL TA'LIM PORTALI
-            </h2>
-            <p class="text-sm text-slate-500 mt-3 font-medium">STEM, Virtual Reallik hamda Sun'iy intellekt ekotizimiga ega zamonaviy bilim maskani</p>
-        </div>
-
-        <!-- HERO IMAGE -->
-        <div class="w-full max-w-5xl rounded-3xl overflow-hidden border-4 border-white hero-display bg-slate-900 relative group cursor-crosshair">
-            <img src="maket.jpg" alt="6-Maktab 5D Bosh Oyna" class="w-full h-auto object-cover block group-hover:scale-[1.01] transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1.5 rounded-xl border border-white/10 flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> 3D/5D Interfaol Model
-            </div>
-        </div>
-
-        <!-- ABOUT SECTION -->
-        <section id="about" class="w-full max-w-5xl bg-white rounded-3xl p-8 md:p-10 shadow-md border border-slate-100 mt-12 scroll-mt-24">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <div class="md:col-span-1 bg-gradient-to-br from-sky-600 via-blue-600 to-indigo-700 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden group">
-                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform"></div>
-                    <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-xl mb-4 backdrop-blur-md shadow-inner">
-                        <i class="fa-solid fa-school"></i>
-                    </div>
-                    <h3 class="text-xl font-black tracking-tight">Ko'rsatkichlar</h3>
-                    <p class="text-xs text-sky-100 mt-2 leading-relaxed">
-                        Maktabimizda 80 nafardan ortiq yuqori malakali pedagoglar faoliyat yuritadi, ulardan 22 nafari oliy toifali, 21 nafari esa xalqaro va milliy sertifikatlarga ega.
-                    </p>
-                    <div class="mt-6 pt-4 border-t border-white/20 flex justify-between items-center text-xs font-bold">
-                        <span>Oliy OTMga kirish:</span>
-                        <span class="bg-emerald-500 text-white px-2 py-0.5 rounded-md shadow-sm">70% Natija</span>
-                    </div>
-                </div>
-                <div class="md:col-span-2 space-y-4">
-                    <div class="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-wider">
-                        <span class="w-6 h-0.5 bg-emerald-500 inline-block"></span> Biz haqimizda biling
-                    </div>
-                    <h3 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">KELAJAK AVLODNI SHAKILLANTIRISH MASKANI</h3>
-                    <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-                        6-sonli umumta'lim maktabi ilg'or STEM laboratoriyalari va zamonaviy AKT infratuzilmasiga ega bo'lgan innovatsion ta'lim muassasasidir. O'tgan o'quv yilida bitiruvchilarimizning 71%i oliy ta'lim muassasalariga grant asosida qabul qilindi. Har bir sinf xonasi interaktiv sensorli doskalar bilan ta'minlangan.
-                    </p>
-                    <div class="pt-2 flex flex-wrap gap-4 text-xs font-bold text-slate-500">
-                        <span class="flex items-center gap-1.5 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-xl"><i class="fa-solid fa-circle-check text-emerald-500"></i> Interaktiv doskalar</span>
-                        <span class="flex items-center gap-1.5 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-xl"><i class="fa-solid fa-circle-check text-emerald-500"></i> Optik tolali internet</span>
-                        <span class="flex items-center gap-1.5 bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-xl"><i class="fa-solid fa-circle-check text-emerald-500"></i> 100% Xavfsiz hudud</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FUTURE CAMPUS -->
-        <section id="future-campus" class="w-full max-w-5xl mt-20">
-            <div class="text-center mb-14">
-                <span class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-2 rounded-full text-xs font-black uppercase tracking-widest">
-                    Future Smart Campus
-                </span>
-                <h2 class="text-4xl md:text-6xl font-black mt-6 text-slate-900">
-                    KELAJAK MAKTABI
-                </h2>
-                <p class="text-slate-500 max-w-3xl mx-auto mt-4 text-sm md:text-base">
-                    Sun'iy intellekt, robototexnika, virtual reallik va raqamli ta'lim ekotizimini o'zida mujassam etgan yangi avlod maktabi.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 hover:-translate-y-2 transition-all">
-                    <div class="w-16 h-16 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-3xl mb-5">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-                    <h3 class="font-black text-xl mb-3 text-slate-800">Sun'iy Intellekt Markazi</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        O'quvchilar ChatGPT, Machine Learning va Computer Vision texnologiyalarini amaliy loyihalar orqali o'rganadilar.
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 hover:-translate-y-2 transition-all">
-                    <div class="w-16 h-16 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-3xl mb-5">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <h3 class="font-black text-xl mb-3 text-slate-800">Robototexnika Akademiyasi</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Arduino, ESP32, IoT va avtonom robotlar yaratish bo'yicha zamonaviy laboratoriyalar.
-                    </p>
-                </div>
-
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 hover:-translate-y-2 transition-all">
-                    <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mb-5">
-                        <i class="fa-solid fa-vr-cardboard"></i>
-                    </div>
-                    <h3 class="font-black text-xl mb-3 text-slate-800">VR & Metaverse Lab</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        Virtual laboratoriyalar va 3D interaktiv ta'lim muhiti.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEATURES SECTION -->
-        <section id="features" class="w-full max-w-5xl mt-16 scroll-mt-24">
-            <div class="text-center mb-10">
-                <div class="flex justify-center items-center gap-2 text-sky-600 font-bold text-xs uppercase tracking-wider">
-                    <span class="w-4 h-0.5 bg-sky-500 inline-block"></span> Bizning afzalliklarimiz <span class="w-4 h-0.5 bg-sky-500 inline-block"></span>
-                </div>
-                <h3 class="text-2xl md:text-3xl font-black text-slate-800 mt-2 tracking-tight">MAKTABIMIZNING ZAMONAVIY IMKONIYATLARI</h3>
-                <p class="text-xs text-gray-400 mt-1">Batafsil ma'lumot va jonli interaktiv videoni ko'rish uchun kartalardan birini bosing</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <a href="#modal-stem" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-orange-300 transition-all duration-300 flex gap-4 cursor-pointer group hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 shadow-sm"><i class="fa-solid fa-microchip"></i></div>
-                    <div>
-                        <h4 class="font-bold text-base text-slate-800 group-hover:text-orange-600 transition-colors flex items-center gap-1.5">STEM va Robototexnika <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                        <p class="text-gray-500 text-xs md:text-sm mt-1 leading-relaxed">O'quvchilarimiz darsdan tashqari vaqtlarda zamonaviy sensorlar va platalar yordamida o'z robotlarini dasturlashni o'rganadilar.</p>
-                    </div>
-                </a>
-                <a href="#modal-vr" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-sky-300 transition-all duration-300 flex gap-4 cursor-pointer group hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300 shadow-sm"><i class="fa-solid fa-vr-cardboard"></i></div>
-                    <div>
-                        <h4 class="font-bold text-base text-slate-800 group-hover:text-sky-600 transition-colors flex items-center gap-1.5">VR (Virtual reallik) Laboratoriyasi <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                        <p class="text-gray-500 text-xs md:text-sm mt-1 leading-relaxed">Kimyo, biologiya va astronomiya darslari maxsus VR ko'zoynaklar yordamida interaktiv o'tiladi.</p>
-                    </div>
-                </a>
-                <a href="#modal-it" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-300 transition-all duration-300 flex gap-4 cursor-pointer group hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300 shadow-sm"><i class="fa-solid fa-code"></i></div>
-                    <div>
-                        <h4 class="font-bold text-base text-slate-800 group-hover:text-purple-600 transition-colors flex items-center gap-1.5">Professional IT va Dasturlash <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                        <p class="text-gray-500 text-xs md:text-sm mt-1 leading-relaxed">Maktabimiz qoshidagi IT-Klubda o'quvchilar Python hamda mukammal Veb-dizayn yo'nalishlarini o'rganishadi.</p>
-                    </div>
-                </a>
-                <a href="#modal-faceid" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-emerald-300 transition-all duration-300 flex gap-4 cursor-pointer group hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl shrink-0 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300 shadow-sm"><i class="fa-solid fa-id-card"></i></div>
-                    <div>
-                        <h4 class="font-bold text-base text-slate-800 group-hover:text-emerald-600 transition-colors flex items-center gap-1.5">Smart Face ID va Xavfsizlik <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-0 group-hover:opacity-100 transition-opacity"></i></h4>
-                        <p class="text-gray-500 text-xs md:text-sm mt-1 leading-relaxed">Maktabga kirish-chiqish to'liq Face ID (yuzni tanish) tizimi orqali avtomatlashtirilgan.</p>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- ROBOTICS PROJECTS -->
-        <section id="robotics" class="w-full max-w-5xl mt-16 scroll-mt-24">
-            <div class="text-center mb-12">
-                <div class="flex justify-center items-center gap-2 text-amber-500 font-bold text-xs uppercase tracking-wider mb-2">
-                    <span class="w-8 h-0.5 bg-amber-500 inline-block"></span> Kelajak Laboratoriyasi <span class="w-8 h-0.5 bg-amber-500 inline-block"></span>
-                </div>
-                <h3 class="text-3xl md:text-4xl font-black text-slate-800 tracking-tight">Robototexnika va STEM Markazi</h3>
-                <p class="text-sm text-slate-500 mt-2">Bu yerda g'oyalar haqiqiy robotlarga aylanadi</p>
-            </div>
+        <!-- 1. Ko'rsatkichlar Bo'limi -->
+        <section class="stats-section">
+            <h2>Ko'rsatkichlar</h2>
+            <p>Maktabimizda 80 nafardan ortiq yuqori malakali pedagoglar faoliyat yuritadi, ulardan 22 nafari oliy toifali, 21 nafari esa xalqaro va milliy sertifikatlarga ega.</p>
             
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                <div class="lg:col-span-2 space-y-4">
-                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all group border-l-4 border-l-amber-500">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0 group-hover:bg-amber-500 group-hover:text-white transition-all"><i class="fa-solid fa-microchip"></i></div>
-                            <div>
-                                <h5 class="font-black text-slate-800 text-sm">1-BOSQICH: Sxemotexnika Asoslari</h5>
-                                <p class="text-[11px] text-slate-500 mt-1">LDR, PIR, LM35 datchiklari va mantiqiy elektronika qonuniyatlarini o'rganish.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all group border-l-4 border-l-sky-500">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl shrink-0 group-hover:bg-sky-500 group-hover:text-white transition-all"><i class="fa-solid fa-laptop-code"></i></div>
-                            <div>
-                                <h5 class="font-black text-slate-800 text-sm">2-BOSQICH: Mikrokontrollerlar (Arduino)</h5>
-                                <p class="text-[11px] text-slate-500 mt-1">C++ tilida ATmega328P kontrollerini dasturlash va murakkab algoritmlar yozish.</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">70%</span>
+                    <p>Oliy OTMga kirish natijasi</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">80+</span>
+                    <p>Malakali pedagoglar</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">21</span>
+                    <p>Xalqaro va milliy sertifikatlar</p>
+                </div>
+            </div>
+        </section>
 
-                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-all group border-l-4 border-l-indigo-500">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl shrink-0 group-hover:bg-indigo-500 group-hover:text-white transition-all"><i class="fa-solid fa-cube"></i></div>
-                            <div>
-                                <h5 class="font-black text-slate-800 text-sm">3-BOSQICH: 3D Modellashtirish</h5>
-                                <p class="text-[11px] text-slate-500 mt-1">Robot korpuslarini 3D printerlar uchun Tinkercad va Fusion 360 dasturlarida loyihalash.</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- 2. Kelajak Avlodni Shakllantirish Maskani -->
+        <section class="main-banner">
+            <h2>KELAJAK AVLODNI SHAKLLANTIRISH MASKANI</h2>
+            <p>6-sonli umumta'lim maktabi ilg'or STEM laboratoriyalari va zamonaviy AKT infratuzilmasiga ega bo'lgan innovatsion ta'lim muassasasidir. O'tgan o'quv yilida bitiruvchilarimizning 71%i oliy ta'lim muassasalariga grant asosida qabul qilindi. Har bir sinf xonasi interaktiv sensorli doskalar bilan ta'minlangan.</p>
+            
+            <div class="badge-container">
+                <div class="badge">Optik tolali internet</div>
+                <div class="badge">100% Xavfsiz hudud</div>
+                <div class="badge">Future Smart Campus</div>
+            </div>
+        </section>
 
-                    <div class="bg-gradient-to-r from-purple-900 to-indigo-950 p-5 rounded-3xl border border-purple-500/30 shadow-lg hover:shadow-purple-500/20 transition-all group border-l-4 border-l-fuchsia-500 text-white">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-fuchsia-500/20 text
+        <!-- 3. Kelajak Maktabi va Yo'nalishlar -->
+        <section class="future-school">
+            <h2 class="section-title">KELAJAK MAKTABI</h2>
+            <p class="intro-text">Sun'iy intellekt, robototexnika, virtual reallik va raqamli ta'lim ekotizimini o'zida mujassam etgan yangi avlod maktabi.</p>
+
+            <div class="grid-container">
+                <!-- Sun'iy Intellekt -->
+                <div class="feature-card card-ai">
+                    <h3>Sun'iy Intellekt Markazi</h3>
+                    <p>O'quvchilar ChatGPT, Machine Learning va Computer Vision texnologiyalarini amaliy loyihalar orqali o'rganadilar.</p>
+                </div>
+
+                <!-- Robototexnika -->
+                <div class="feature-card card-robot">
+                    <h3>Robototexnika Akademiyasi</h3>
+                    <p>Arduino, ESP32, IoT va avtonom robotlar yaratish bo'yicha zamonaviy laboratoriyalar.</p>
+                </div>
+
+                <!-- VR & Metaverse -->
+                <div class="feature-card card-vr">
+                    <h3>VR & Metaverse Lab</h3>
+                    <p>Virtual laboratoriyalar va 3D interaktiv ta'lim muhiti orqali darslar yanada qiziqarli o'tiladi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Maktabimizning Zamonaviy Imkoniyatlari -->
+        <section class="interactive-section">
+            <h2 class="section-title">MAKTABIMIZNING ZAMONAVIY IMKONIYATLARI</h2>
+            <p style="color: #64748b; margin-top: 10px;">Batafsil ma'lumot va jonli interaktiv videoni ko'rish uchun kartalardan birini bosing:</p>
+
+            <div class="interactive-grid">
+                <a href="#" class="interactive-item">
+                    <h4>STEM va Robototexnika</h4>
+                    <p>O'quvchilarimiz darsdan tashqari vaqtlarida zamonaviy sensorlar va platalar yordamida o'z robotlarini dasturlashni o'rganadilar.</p>
+                </a>
+
+                <a href="#" class="interactive-item">
+                    <h4>VR (Virtual reallik) Laboratoriyasi</h4>
+                    <p>Kimyo, biologiya va astronomiya darslari maxsus VR ko'zoynaklar yordamida interaktiv o'tiladi.</p>
+                </a>
+
+                <a href="#" class="interactive-item">
+                    <h4>Professional IT va Dasturlash</h4>
+                    <p>Zamonaviy kodlash tillari va veb-texnologiyalarni mukammal o'rganish imkoniyati.</p>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
